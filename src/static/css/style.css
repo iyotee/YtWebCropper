@@ -1,0 +1,238 @@
+/* Base Styles */
+:root {
+    --primary-color: #8ab4f8;
+    --secondary-color: #34a853;
+    --error-color: #f28b82;
+    --text-color: #e8eaed;
+    --dark-bg: #202124;
+    --card-bg: #292a2d;
+    --border-color: #5f6368;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --input-bg: #303134;
+    --hover-color: #a1c4f7;
+    --button-hover: #7aa4e8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--dark-bg);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #bdc1c6;
+}
+
+/* Form Styles */
+.input-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.time-inputs {
+    display: flex;
+    gap: 1rem;
+}
+
+.time-inputs > div {
+    flex: 1;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Checkbox styles */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/* Progress Section */
+.progress-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.progress-container {
+    margin: 1.5rem 0;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-weight: 500;
+}
+
+#status-message {
+    color: #bdc1c6;
+}
+
+/* Result Section */
+.result-section, .error-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--button-hover);
+}
+
+.button.secondary {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.button.secondary:hover {
+    background-color: #444548;
+}
+
+/* Error Section */
+.error-section h2 {
+    color: var(--error-color);
+}
+
+#error-message {
+    margin: 1rem 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: #bdc1c6;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .time-inputs {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Processor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YouTube Video Processor</h1>
+            <p>Trim, crop, and add subtitles to YouTube videos with face tracking</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <form id="video-form">
+                    <div class="form-group">
+                        <label for="video-url">YouTube Video URL:</label>
+                        <input type="text" id="video-url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." required>
+                    </div>
+                    
+                    <div class="form-group time-inputs">
+                        <div>
+                            <label for="start-time">Start Time (seconds):</label>
+                            <input type="number" id="start-time" name="start_time" min="0" value="0">
+                        </div>
+                        
+                        <div>
+                            <label for="duration">Duration (seconds):</label>
+                            <input type="number" id="duration" name="duration" min="1" value="60">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="debug-frames" name="debug_frames">
+                            <label for="debug-frames">Debug Frames (Show face detection and speaker identification)</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="karaoke-mode" name="karaoke_mode" checked>
+                            <label for="karaoke-mode">Karaoke Mode (Highlight spoken words)</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="process-btn">Process Video</button>
+                </form>
+            </section>
+            
+            <section class="progress-section" style="display: none;">
+                <h2>Processing Video</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">0%</div>
+                </div>
+                <p id="status-message">Starting process...</p>
+            </section>
+            
+            <section class="result-section" style="display: none;">
+                <h2>Processing Complete!</h2>
+                <p>Your video has been processed successfully.</p>
+                <div class="button-container">
+                    <a href="#" id="download-btn" class="button">Download Video</a>
+                    <button id="process-new-btn" class="button secondary">Process Another Video</button>
+                </div>
+            </section>
+            
+            <section class="error-section" style="display: none;">
+                <h2>Error</h2>
+                <p id="error-message"></p>
+                <button id="try-again-btn" class="button secondary">Try Again</button>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 YouTube Video Processor</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
