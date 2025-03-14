@@ -323,7 +323,8 @@ def extract_audio_and_transcribe(video_path, output_dir, karaoke_mode=True):
     # Use ffmpeg to extract audio
     cmd = [
         'ffmpeg', '-i', video_path,
-        '-vn', '-acodec', 'pcm_s16le', '-ar', '16000', '-ac', '1',
+        # '-vn', '-acodec', 'pcm_s16le', '-ar', '16000', '-ac', '1',  # Original parameters
+        '-vn', '-acodec', 'aac', '-b:a', '128k', '-ar', '44100', '-ac', '1',  # Alternative parameters
         audio_path
     ]
     
@@ -496,14 +497,14 @@ def add_subtitles_to_video(video_path, subtitle_path, output_path):
         if subtitle_ext == '.ass':
             # For ASS subtitles
             cmd = [
-                'ffmpeg', '-i', video_path, 
+                'ffmpeg', '-i', video_path,
                 '-vf', f"ass='{subtitle_path_escaped}'",
                 '-c:a', 'copy', output_path
             ]
         else:
             # For SRT subtitles
             cmd = [
-                'ffmpeg', '-i', video_path, 
+                'ffmpeg', '-i', video_path,
                 '-vf', f"subtitles='{subtitle_path_escaped}':force_style='FontSize=24,Alignment=2'",
                 '-c:a', 'copy', output_path
             ]
