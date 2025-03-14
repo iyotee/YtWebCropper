@@ -180,7 +180,7 @@ def download_youtube_video(url, output_dir):
             '--ignore-errors',
             '--extractor-retries', '3',
             '-f', 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', 
-            '--cookies', 'src/cookies.txt',  
+            '--cookies-from-browser', 'src/cookies.txt',  
             '-o', output_path, 
             url
         ]
@@ -200,7 +200,7 @@ def download_youtube_video(url, output_dir):
             '--no-check-certificates',
             '--geo-bypass',
             '-f', 'best[ext=mp4]/best', 
-            '--cookies', 'src/cookies.txt',  
+            '--cookies-from-browser', 'src/cookies.txt',  
             '-o', output_path, 
             url
         ]
