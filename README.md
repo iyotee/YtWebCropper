@@ -34,10 +34,9 @@ pip install -r requirements.txt
    - macOS: `brew install ffmpeg`
    - Linux: `sudo apt-get install ffmpeg`
 
-4. Update mediapipe once more.
-```
-pip install --upgrade mediapipe
-```
+4. Install dlib (this may require additional system dependencies):
+   - Windows: You may need Visual C++ build tools
+   - macOS/Linux: You may need to install CMake and other build dependencies
 
 ## Usage
 

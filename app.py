@@ -715,13 +715,6 @@ def update_task_status(task_id, message, progress, output_path=None):
         'output_path': output_path
     }
 
-def clear_processed_directory():
-    processed_dir = 'processed'
-    if os.path.exists(processed_dir):
-        shutil.rmtree(processed_dir)  # Supprime le dossier et son contenu
-    os.makedirs(processed_dir)  # Recrée le dossier vide
-
 if __name__ == '__main__':
-    clear_processed_directory()  # Appelle la fonction pour vider le dossier
     serve(app, host='0.0.0.0', port=5000)
     pass
