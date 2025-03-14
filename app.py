@@ -180,7 +180,7 @@ def download_youtube_video(url, output_dir):
             '--ignore-errors',
             '--extractor-retries', '3',
             '-f', 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best', 
-            '--cookies-from-browser', 'src/cookies.txt',  
+            '--cookies', 'src/cookies.txt',  
             '-o', output_path, 
             url
         ]
@@ -200,7 +200,7 @@ def download_youtube_video(url, output_dir):
             '--no-check-certificates',
             '--geo-bypass',
             '-f', 'best[ext=mp4]/best', 
-            '--cookies-from-browser', 'src/cookies.txt',  
+            '--cookies', 'src/cookies.txt',  
             '-o', output_path, 
             url
         ]
@@ -330,7 +330,7 @@ def extract_audio_and_transcribe(video_path, output_dir, karaoke_mode=True):
     subprocess.run(cmd, check=True, capture_output=True)
     
     # Load Whisper model (large for best accuracy)
-    model = whisper.load_model("large")
+    model = whisper.load_model("medium")
     
     # Transcribe audio
     print("Transcribing audio with Whisper...")
