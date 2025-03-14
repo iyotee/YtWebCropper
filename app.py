@@ -11,6 +11,7 @@ import numpy as np
 import whisper
 from pydub import AudioSegment
 from flask import Flask, render_template, request, jsonify, send_file
+from waitress import serve
 
 # Create necessary directories
 os.makedirs('uploads', exist_ok=True)
@@ -712,4 +713,5 @@ def update_task_status(task_id, message, progress, output_path=None):
     }
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=5000)
+    pass
