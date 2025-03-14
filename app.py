@@ -238,13 +238,12 @@ def download_youtube_video(url, output_dir):
 def trim_video(video_path, start_time, duration, output_dir):
     output_path = os.path.join(output_dir, 'trimmed.mp4')
     
-    # Use ffmpeg to trim the video
     cmd = [
-        'ffmpeg', '-i', video_path, 
-        '-ss', str(start_time), 
-        '-t', str(duration), 
-        '-c:v', 'libx264', '-c:a', 'aac', 
-        '-strict', 'experimental', output_path
+    'ffmpeg', '-i', video_path, 
+    '-ss', str(start_time), 
+    '-t', str(duration), 
+    '-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '28', 
+    '-c:a', 'copy', '-threads', '2', output_path
     ]
     
     subprocess.run(cmd, check=True)
