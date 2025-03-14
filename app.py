@@ -330,7 +330,7 @@ def extract_audio_and_transcribe(video_path, output_dir, karaoke_mode=True):
     subprocess.run(cmd, check=True, capture_output=True)
     
     # Load Whisper model (large for best accuracy)
-    model = whisper.load_model("medium")
+    model = whisper.load_model("small")
     
     # Transcribe audio
     print("Transcribing audio with Whisper...")
